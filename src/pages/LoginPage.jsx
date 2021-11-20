@@ -2,6 +2,8 @@ import React, { useReducer } from 'react'
 import "./LoginPage.css"
 import logo_login from "../assets/images/logo.png"
 import { loginFeature } from '../redux/actions/UserAction';
+import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 let defaultState = { usr: '', pass: '' }
 let reducer = (state, action) => {
     switch (action.type) {
@@ -15,8 +17,10 @@ let reducer = (state, action) => {
 }
 export default function LoginPage() {
     const [state, dispatch] = useReducer(reducer, defaultState)
+    const dispatchStore = useDispatch();
     return (
         <div className="align">
+            {console.log("login Re-render")}
             <div className="formLogin">
                 <div className="d-flex justify-content-center pb-5">
                     <img width="200px" src={logo_login} alt="logo" />
@@ -44,11 +48,11 @@ export default function LoginPage() {
                     </div>
                     <div className="form__field text-center">
                         <button type="button" className="btn btn-primary w-100"
-                            onClick={() => loginFeature(state)}
+                            onClick={() => dispatchStore(loginFeature(state))}
                         >Login</button>
                     </div>
                 </form>
-                <p className="text--center">Not a member? <a href="#">Sign up now</a> <svg className="icon">
+                <p className="text--center">Not a member? <NavLink to="/login">Sign up now</NavLink> <svg className="icon">
                     <use xlinkHref="#icon-arrow-right" />
                 </svg></p>
             </div>
