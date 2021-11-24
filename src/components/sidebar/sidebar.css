@@ -23,8 +23,12 @@
     height: 50px;
 }
 
-.sidebar__item {
+/* .sidebar__item {
     padding: 0 20px;
+} */
+
+.sidebar__item {
+    padding: 0 25px;
 }
 
 .sidebar__item-inner {
