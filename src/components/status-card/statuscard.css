@@ -1,5 +1,5 @@
 .status-card {
-    padding: 30px;
+    padding: 46px 70px 46px 30px;
     display: flex;
     align-items: center;
     background-color: var(--main-bg);
@@ -20,11 +20,12 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
+    position: absolute;
 }
 
 .status-card__info {
     flex-grow: 1;
-    text-align: center;
+    text-align: end;
     z-index: 1;
     text-transform: capitalize;
     position: relative;
