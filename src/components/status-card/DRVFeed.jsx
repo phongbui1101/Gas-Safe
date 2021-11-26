@@ -20,7 +20,7 @@ const DRVFeed = props => {
         //             data: value
         //         })
         //     }
-        // })
+        // 
     }, [])
     return (
         <div className='status-card'>
