@@ -18,7 +18,7 @@ export const sendData = async (feedID, value) => {
         method: 'POST',
         url: `https://io.adafruit.com/api/v2/${USERNAME}/feeds/${feedID}/data`,
         data: {
-            value: `{"id": "1","name": "${feedID}","data": "${value}","unit": ""}`
+            value: `{"id": "1","name":${feedID},"data": "${value}","unit": ""}`
         },
         headers: {
             "X-AIO-Key": `${ACTIVE_KEY}`,
