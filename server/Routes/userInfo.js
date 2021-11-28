@@ -11,7 +11,7 @@ userInfoRouter.get('/', authenticate, authorize("user"), async (req, res) => {
     let data = await db_connected.where('email', '==', `${req.decodeToken.email}`).limit(1).get();
     if (!data.empty) {
         data.forEach(doc => {
-            let { email, phone, name, password, address } = doc.data();
+            let { email, phone, name, address } = doc.data();
             res.status(200).send({ email, phone, name, address });
         })
     } else {

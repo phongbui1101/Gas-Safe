@@ -21,9 +21,9 @@ settingRoute.get('/', async (req, res) => {
 
     // result.doc('C6KpdU3nm5oL5rxt9lwL').update({email:"trunganh222@gmail.com"});
     // Update filed email 
-    result.doc('C6KpdU3nm5oL5rxt9lwL').update({phonelist:FieldValue.arrayUnion({name: 'newItem2'} )});
+    // result.doc('C6KpdU3nm5oL5rxt9lwL').update({phonelist:FieldValue.arrayUnion({name: 'newItem2'} )});
     //thêm vào mảng phoneList
-    result.doc('C6KpdU3nm5oL5rxt9lwL').update({phonelist:FieldValue.arrayRemove({name: 'newItem2'} )});
+    // result.doc('C6KpdU3nm5oL5rxt9lwL').update({phonelist:FieldValue.arrayRemove({name: 'newItem2'} )});
     // Xóa phần tử trong mảng phonelist
 
     // res.status(200).send("fail");
