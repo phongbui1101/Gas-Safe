@@ -64,7 +64,6 @@ export const getPhoneList = async (dispatch) => {
             authorization: token
         }
     })
-    console.log("PhoneList: ", result.data);
     dispatch({
         type: "PHONE_LIST",
         data: result.data
@@ -82,6 +81,21 @@ export const sendSMS = () => {
             authorization: token
         }
     })
+}
+export const addNewPhone =  ({ name, phone }) => {
+    return async (dispatch) => {
+        if (!checkLogin()) return history.push('/login')
+        let token = localStorage.getItem("accessToken")
+        await axios({
+            url: 'http://localhost:7000/phonelist',
+            method: 'post',
+            data: { name, phone },
+            headers: {
+                authorization: token
+            }
+        })
+        getPhoneList(dispatch);
+    }
 }
 export const logout = () => {
     localStorage.clear();

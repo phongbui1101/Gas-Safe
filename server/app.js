@@ -12,6 +12,7 @@ app.use('/', rootRoute)
 app.use('/', (err, req, res, next) => {
     const errCode = err.code || 500;
     const msg = err.msg || "Internal Server Error";
+    console.log("bad request")
     res.status(errCode).send(msg);
 })
 app.listen(PORT, () => {

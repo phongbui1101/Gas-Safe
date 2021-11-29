@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import Chart from 'react-apexcharts'
 import { useSelector } from 'react-redux';
+import ApexCharts from "apexcharts";
 const chartOptions = {
     series: [{
         name: 'Online Customers',
@@ -39,6 +40,20 @@ const chartOptions = {
             enabled: false
         },
         stroke: {
+            // curve: 'smooth'
+            curve: 'stepline',
+        },
+        xaxis: {
+            // type: "datetime",
+            range: 5,
+            // 500ms mỗi step là 1000ms
+            // categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+            // range:5000,
+            // labels: {
+            //     formatter: function (value) {
+            //         return value
+            //     }
+            // }
             curve: 'stepline',
         },
         xaxis: {
@@ -70,6 +85,8 @@ const chartOptions = {
 
 let value = [1, 0, 1, 0, 0, 1, 0]
 export default function StepChart() {
+    // const [data, setData] = useState([]);
+=======
     const { data } = useSelector((state) => state.DataChartReducer)
     console.log(data)
     return (

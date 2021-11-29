@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals'
 
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 
 import { Provider } from 'react-redux'
 
@@ -14,20 +14,38 @@ import './assets/css/theme.css'
 import './assets/css/index.css'
 
 import Layout from './components/layout/Layout'
-
+import { BrowserRouter, Route, Switch, Router } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import { history } from './config/config';
+import ReduxThunk from 'redux-thunk'
+import PersonalInfo from './pages/PersionalInfo';
+import Test from './pages/Test';
+import Routes from './components/Routes';
 const store = createStore(
-  rootReducer
+  rootReducer, applyMiddleware(ReduxThunk)
 )
 
-document.title = 'DashBoard-TrungAnh'
+document.title = 'IOT'
 
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <Layout />
+      <BrowserRouter>
+        <Router history={history}>
+          <Switch >
+            <Route exact path="/login" component={LoginPage} />
+            <Route path="/">
+              <Layout/>
+            </Route>
+          </Switch>
+        </Router>
+      </BrowserRouter>
     </React.StrictMode>
-  </Provider>,
+  </Provider >,
   document.getElementById('root')
 );
 
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

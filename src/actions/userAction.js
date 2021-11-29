@@ -13,16 +13,25 @@ export const getLastest = async (feedName) => {
     // console.log("Result: ", result);
     return +JSON.parse(result.data.value).data;
 }
-export const sendData = async (feedID, value) => {
+export const sendData = async (id, feedName, feedID, value, active_key, userName) => {
     await axios({
         method: 'POST',
-        url: `https://io.adafruit.com/api/v2/${USERNAME}/feeds/${feedID}/data`,
+        url: `https://io.adafruit.com/api/v2/${userName}/feeds/${feedID}/data`,
         data: {
+            value: `{"id": "${id}","name":"${feedName}","data": "${value}","unit": ""}`
             value: `{"id": "1","name":${feedID},"data": "${value}","unit": ""}`
         },
         headers: {
-            "X-AIO-Key": `${ACTIVE_KEY}`,
+            "X-AIO-Key": `${active_key}`,
             "Content-Type": 'application/json'
         }
     })
 }
+export const changeSetting = (fanmode, fanspeed) => {
+    let settings = JSON.parse(localStorage.getItem('settings'));
+    settings = { ...settings, fanmode, fanspeed }
+    console.log(fanmode,fanspeed);
+    localStorage.setItem('settings', JSON.stringify(settings));
+
+}
+

@@ -7,6 +7,7 @@ import './statuscard.css'
 
 const DRVFeed = props => {
     // const [valueSensor, setValueSensor] = useState(0);
+    const { fan, serverFanGasConection } = useSelector((state) => state.ElectricStatusReducer)
     const {fan,serverFanGasConection} = useSelector((state) => state.ElectricStatusReducer)
     const dispatch = useDispatch();
     useEffect(() => {
@@ -32,6 +33,8 @@ const DRVFeed = props => {
                 <div style={{ display: `${!serverFanGasConection ? "block" : "none"}` }}>
                     <Loader topDis={"0px"} />
                 </div>
+                <ButtonFAN fan={fan} />
+
                 <span>{props.feed}</span>
                 <ButtonFAN/>
             </div>

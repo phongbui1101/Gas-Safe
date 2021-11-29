@@ -1,8 +1,25 @@
+
+import React, { useEffect, useState } from 'react'
+import "./PersionalInfo.css"
+import user_image from '../assets/images/hansohee.png'
+import { NavLink } from 'react-router-dom'
+import { history } from '../config/config'
+import { getInfo } from '../redux/actions/UserAction'
+const PersonalInfo = () => {
+    const [userInfo,setUserinfo] = useState({name:'',email:'',address:'',phone:''})
+    console.log("Inforpage");
+    useEffect(async() => {
+        console.log("here")
+        let userInfo =await getInfo()
+        setUserinfo(userInfo)
+    }, [])
+
 import React from 'react'
 import "./PersionalInfo.css"
 import user_image from '../assets/images/hansohee.png'
 
 const PersonalInfo = () => {
+
     return (
         <div>
             <h2 className="page-header">
@@ -13,7 +30,6 @@ const PersonalInfo = () => {
                     <div className="row" style={{ height: '100%' }}>
                         <div className="col-md-3">
                             <div href="#" className="d-inline">
-                                {/* <img src={user_image} width="100%" style={{ margin: 0 }} /><br /> */}
                                 <div className="topnav__right-user__image" style={{ width: '200px', height: '200px', margin: 'auto' }}>
                                     <img src={user_image} alt="" />
                                 </div>
@@ -30,6 +46,22 @@ const PersonalInfo = () => {
                                 <form>
                                     <div className="form-group">
                                         <label htmlFor="fullName">Full Name</label>
+
+                                        <input defaultValue={userInfo.name} type="text" className="form-control" id="fullName" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="email">Email</label>
+                                        <input defaultValue={userInfo.email} type="email" className="form-control" id="email" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="pass">Phone</label>
+                                        <input defaultValue={userInfo.phone} type="number" className="form-control" id="pass" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="fullName">Address</label>
+                                        <input defaultValue={userInfo.address} type="text" className="form-control" id="fullName" />
+                                    </div>
+
                                         <input type="text" className="form-control" id="fullName" />
                                     </div>
                                     <div className="form-group">
@@ -49,13 +81,12 @@ const PersonalInfo = () => {
                                         <input type="date" className="form-control" id="birthday" />
                                     </div>
 
+
                                     <div className="row mt-5">
                                         <div className="col-4">
                                             <button type="button" className="btn btn-primary btn-block">Save Changes</button>
                                         </div>
-                                        {/* <div className="col-4">
-                                            <button type="button" className="btn btn-primary btn-block">Change Password</button>
-                                        </div> */}
+
                                     </div>
                                 </form>
                             </div>
@@ -69,3 +100,4 @@ const PersonalInfo = () => {
 }
 
 export default PersonalInfo
+
