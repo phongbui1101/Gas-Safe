@@ -52,9 +52,6 @@ export default function LoginPage() {
                         >Login</button>
                     </div>
                 </form>
-                {/* <p className="text--center">Not a member? <NavLink to="/login">Sign up now</NavLink> <svg className="icon">
-                    <use xlinkHref="#icon-arrow-right" />
-                </svg></p> */}
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" className="icons">
                 <symbol id="icon-arrow-right" viewBox="0 0 1792 1792">

@@ -54,6 +54,10 @@ const chartOptions = {
             //         return value
             //     }
             // }
+            curve: 'stepline',
+        },
+        xaxis: {
+            range: 5,
         },
         yaxis: {
             min: 0,
@@ -82,6 +86,7 @@ const chartOptions = {
 let value = [1, 0, 1, 0, 0, 1, 0]
 export default function StepChart() {
     // const [data, setData] = useState([]);
+=======
     const { data } = useSelector((state) => state.DataChartReducer)
     console.log(data)
     return (

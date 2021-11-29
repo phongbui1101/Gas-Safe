@@ -4,7 +4,6 @@ import { checkLogin } from "./Helper"
 
 export const loginFeature = ({ usr, pass }) => {
     return async (dispatch) => {
-        console.log("login")
         try {
             let result = await axios({
                 method: 'POST',
@@ -71,6 +70,7 @@ export const getPhoneList = async (dispatch) => {
     });
     return result.data
 }
+
 export const sendSMS = () => {
     if (!checkLogin()) return history.push('/login')
     let token = localStorage.getItem("accessToken")
@@ -101,3 +101,4 @@ export const logout = () => {
     localStorage.clear();
     return history.push('/login')
 }
+   

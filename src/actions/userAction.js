@@ -19,6 +19,7 @@ export const sendData = async (id, feedName, feedID, value, active_key, userName
         url: `https://io.adafruit.com/api/v2/${userName}/feeds/${feedID}/data`,
         data: {
             value: `{"id": "${id}","name":"${feedName}","data": "${value}","unit": ""}`
+            value: `{"id": "1","name":${feedID},"data": "${value}","unit": ""}`
         },
         headers: {
             "X-AIO-Key": `${active_key}`,
@@ -33,3 +34,4 @@ export const changeSetting = (fanmode, fanspeed) => {
     localStorage.setItem('settings', JSON.stringify(settings));
 
 }
+

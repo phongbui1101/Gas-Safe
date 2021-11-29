@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 import "./PersionalInfo.css"
 import user_image from '../assets/images/hansohee.png'
@@ -12,6 +13,13 @@ const PersonalInfo = () => {
         let userInfo =await getInfo()
         setUserinfo(userInfo)
     }, [])
+
+import React from 'react'
+import "./PersionalInfo.css"
+import user_image from '../assets/images/hansohee.png'
+
+const PersonalInfo = () => {
+
     return (
         <div>
             <h2 className="page-header">
@@ -38,6 +46,7 @@ const PersonalInfo = () => {
                                 <form>
                                     <div className="form-group">
                                         <label htmlFor="fullName">Full Name</label>
+
                                         <input defaultValue={userInfo.name} type="text" className="form-control" id="fullName" />
                                     </div>
                                     <div className="form-group">
@@ -52,23 +61,43 @@ const PersonalInfo = () => {
                                         <label htmlFor="fullName">Address</label>
                                         <input defaultValue={userInfo.address} type="text" className="form-control" id="fullName" />
                                     </div>
+
+                                        <input type="text" className="form-control" id="fullName" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="email">Email</label>
+                                        <input type="email" className="form-control" id="email" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="pass">Phone</label>
+                                        <input type="number" className="form-control" id="pass" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="fullName">Address</label>
+                                        <input type="text" className="form-control" id="fullName" />
+                                    </div>
+                                    <div className="form-group ">
+                                        <label htmlFor="birthday">Birthday</label>
+                                        <input type="date" className="form-control" id="birthday" />
+                                    </div>
+
+
                                     <div className="row mt-5">
                                         <div className="col-4">
                                             <button type="button" className="btn btn-primary btn-block">Save Changes</button>
                                         </div>
+
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     )
 }
 
 export default PersonalInfo
-
-
-
 
